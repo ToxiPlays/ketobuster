@@ -1,0 +1,13 @@
+{
+  "name": "ketobuster-bot",
+  "version": "1.0.0",
+  "description": "A basic Discord bot using Discord.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.0.0",
+    "dotenv": "^16.0.0"
+  }
+}
