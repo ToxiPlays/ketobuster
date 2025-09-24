@@ -1,5 +1,6 @@
 require('dotenv').config();
 const { Client, GatewayIntentBits } = require('discord.js');
+const http = require('http');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
 
@@ -35,6 +36,20 @@ client.on('messageCreate', message => {
             .catch(console.error);
         }
     }
+});
+
+const server = http.createServer((req, res) => {
+    if (req.method === 'GET') {
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        res.end('OK');
+    } else {
+        res.writeHead(405, { 'Content-Type': 'text/plain' });
+        res.end('Method Not Allowed');
+    }
+});
+
+server.listen(3000, () => {
+    console.log('HTTP server listening on port 3000');
 });
 
 client.login(token);
