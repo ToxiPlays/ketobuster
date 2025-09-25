@@ -32,8 +32,8 @@ client.on('messageCreate', message => {
             message.reply(`[@${username} on Twitter](${newLink})`)
             .then(() => console.warn(`Replied with fixed link for message: ${message.id}\nLink: ${newLink}, Lang: ${lang}, User: ${message.author.tag}`))
             .catch(console.error);
-        } else if (message.content.includes("/sammyjrecho/")) {
-            message.channel.send(message.content.replaceAll("/sammyjrecho/",""))
+        } else if (message.content.includes("||/sammyjrecho/||")) {
+            message.channel.send(message.content.replaceAll("||/sammyjrecho/||",""))
             .then(() => message.delete())
             .then(() => console.warn(`Echo message from ${message.author.tag} sent: ${message.content}`))
             .catch(console.error);
