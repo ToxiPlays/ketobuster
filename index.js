@@ -31,6 +31,7 @@ client.on('messageCreate', message => {
             const newLink = `https://fixupx.com/${username}/status/${statusId}/${lang}`;
             message.reply(`[@${username} on Twitter](${newLink})`)
             .then(() => console.warn(`Replied with fixed link for message: ${message.id}\nLink: ${newLink}, Lang: ${lang}, User: ${message.author.tag}`))
+            .then(() => message.suppressEmbeds(true))
             .catch(console.error);
         } else if (message.content.includes("||/sammyjrecho/||")) {
             message.channel.send(message.content.replaceAll("||/sammyjrecho/||",""))
