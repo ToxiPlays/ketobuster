@@ -13,13 +13,11 @@ client.once('clientReady', () => {
 
 client.on('messageCreate', message => {
     if (message.author.bot) {
-        console.log("Bot message!")
-        if (message.author.id.toString() == '1128948590467895396') {
+        if (message.author.id.toString() == '1128948590467895396' && message.content.toLowerCase().includes("twitter")) {
             message.delete()
                 .then(() => console.warn(`Deleted message from converter bot: ${message.id}`))
                 .catch(console.error);
         } else {
-            console.log("Not the right bot, ignoring.")
             return;
         }
     } else {
